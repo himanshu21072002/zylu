@@ -16,17 +16,6 @@ mongoose.connect("mongodb+srv://Himanshu:himanshu@zylu.jjheihn.mongodb.net/?retr
         res.json(response);
     });
   
-    app.post("/delete/:username", function (req, res) {
-        User.deleteOne({ username: req.params.username },
-            (err, result) => {
-                if (err) return res.status(500).json({ msg: err });
-                const msg = {
-                    msg: "user deleted",
-                    username: req.params.username
-                };
-                return res.json(msg);
-            });
-    }),
     app.get("/list", async function (req, res) {
         const response = await User.find();
         res.json(response);
