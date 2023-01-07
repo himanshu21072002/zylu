@@ -24,7 +24,7 @@ age:{
     required:true,
 },
 experience:{
-    type:int,
+    type:String,
     required:true,
 },
 picture:{
