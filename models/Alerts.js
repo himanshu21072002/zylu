@@ -1,37 +1,33 @@
 const mongoose=require("mongoose");
 
-const User=mongoose.Schema({
-username:{
+const Alert=mongoose.Schema({
+id:{
     type:String,
     required:true,
     unique:true,
 },
 
-email:{
+alert_type:{
     type:String,
     required:true,
 },
-gender:{
+vehicle_id:{
+    type:String,
+    required:true,
+    unique:true,
+},
+driver_friendly_name:{
     type:String,
     required:true,
 },
-location:{
+vehicle_friendly_name:{
     type:String,
     required:true,
 },
-age:{
-    type:String,
-    required:true,
-},
-
-picture:{
-    type:String,
-    required:true,
-},
-dateOfJoining:{
+timestamp:{
     type:Date,
     required:true,
 }
 });
 
-module.exports=mongoose.model("User",User);
+module.exports=mongoose.model("Alert",Alert);

@@ -1,8 +1,12 @@
 var express = require("express");
 var app = express();
+const cors= require("cors");
+app.use(cors());
 
 var mongoose = require("mongoose");
 var User = require("./models/schema");
+var vehicle= require("./models/vehicles");
+var Alert= require("./models/Alerts");
 
 const bodyParser = require("body-parser");
 const { findOne } = require("./models/schema");
@@ -15,11 +19,20 @@ mongoose.connect("mongodb+srv://Himanshu:himanshu@zylu.jjheihn.mongodb.net/?retr
         const response = { message: "API works good!!" };
         res.json(response);
     });
-  
     app.get("/list", async function (req, res) {
         const response = await User.find();
         res.json(response);
     });
+    
+    app.get("/vehicles", async function (req, res) {
+        const response = await vehicle.find();
+        res.json(response);
+    });
+    app.get("/alerts", async function (req, res) {
+        const response = await Alert.find();
+        res.json(response);
+    });
+
 
 });
 
